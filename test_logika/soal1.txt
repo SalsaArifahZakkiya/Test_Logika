@@ -1,0 +1,28 @@
+function kelipatantigadantujuh(N) {
+    //deklarasi count untuk iterasi selanjutnya 
+    let count = 0;
+    //deklarasi num sebagai angka yang akan di mod 3 dan mod 7 
+    let num = 1;
+    //hasil nya di simpan dalam variabel output
+    let output = "";
+    //selama count kurang dari inputan, maka dapat masuk dalam operasi while
+    while(count < N){
+        //membandingkan num yang telah di deklarasikan untuk mendapat nilai z dari n yang di inputkan
+        if(num % 3 == 0 && num % 7 == 0){
+            output += "Z, ";
+            count++;
+        //membandingkan num yang telah di deklarasikan untuk menampilkan nilai dari num
+        } else if (num % 3 == 0 || num % 7 == 0){
+            output += num + ", "
+            count++;
+        }
+        //iterasi dari num
+        num++;
+    }
+    return output;
+}
+//untuk memangggil fungsi dari kelipatantigadantujuh dengan nilai inputan adalah 13
+let input = 13;
+let hasil = kelipatantigadantujuh(input);
+console.log("N = ", input);
+console.log("Output : " , hasil);

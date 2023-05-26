@@ -1,0 +1,41 @@
+//fungsi yang di gunakan untuk menghitung jumlah kemunculan kata dengan parameter input dan kata
+function jumlahkemunculankata(input, kata) {
+    //deklarasikan jumlah dengan angka 0 karena jumlah bersifat fleksibel karena jumlah tidak di ketahui angka atau bukan
+    let jumlah = 0;
+    //deklarasikan i sebagai index yang nantinya akan di masukkan dalam while
+    let i = 0;
+    //selama index nya tidak sama dengan -1 atau loopingan berhenti, maka masuk dalam loopingan yang di dalam, sebaliknya juga
+    while (i != -1){
+        // i yang telah di deklarasikan di masukkan inputan dengan index dari kata dan i itu sendiri
+        i = input.indexOf(kata, i);
+        //jika i tidak sama dengan -1 maka jumlah akan bertambah dan i ditambah dengan panjang dari kata tersebut.
+        if (i != -1) {
+            jumlah++;
+            i += kata.length;
+        }
+    }
+    //menampilkan jumlah nya
+    return jumlah;
+}
+//fungsi ini digunakan untuk melakukan pencarian dari data yang di inputkan
+function pencarian(input) {
+    //kata kunci dimakasud untuk mencari kata apa saya yang ingin di outputkan
+    const katakunci  = ["sang gajah", "serigala", "harimau"];
+    //mendeklarasikan hasil sebagai tampungan nantinya
+    let hasil = "";
+    //kata kunci tersebut kemudian di cek berdasarkan jumlahkemunculankata yang kemudian di lakukan looping untuk menapilkan hasil ditambah dengan kata kunci yang di harapkan dapat membuat spasi berbentuk -
+    katakunci.forEach((katakunci) => {
+        const jumlahmuncul = jumlahkemunculankata(input, katakunci);
+        for(let i = 0; i < jumlahmuncul; i++){
+            hasil += katakunci + " - "
+        }
+    });
+    //hasil tersebut harus menggunakan slice untuk memisahkan kalimat dengan index awal yaitu 0 karakter pertama dan index akhir -2 karakter terakhir yang artinya di ambil dari 2 kalimant terbelakang
+    let potongan = hasil.slice(0, -2);
+    return potongan;
+}
+//untuk memasukkan inputan dan menampilkan outputan berdasarkan fungsi pencarian dan input
+const input = "Berikut adalah kisah sang gajah. Sang gajah memiliki teman serigala bernama DoeSang. Gajah sering dibela oleh serigala ketika harimau mendekati gajah."
+const hasilpencarian = pencarian(input);
+console.log("Input : ",input)
+console.log("Output : ", hasilpencarian);

@@ -1,0 +1,50 @@
+function polaBilanganGanjil(input, i = 0, j = 0, pola = []) {
+    if (input % 2 != 0) {
+      if (i >= input) {
+
+        return pola;
+      }
+      if (!pola[i]) {
+        pola[i] = "";
+      }
+      if (j >= input) {
+        console.log(pola[i]);
+        return polaBilanganGanjil(input, i + 1, 0, pola);
+      }
+      if (
+        i == 0 ||
+        i == input - 1 ||
+        j == 0 ||
+        j == input - 1 ||
+        j == i
+      ) {
+        pola[i] += "X";
+      } else {
+        pola[i] += "O";
+      }
+    } else if(input % 2 == 0){
+        return "Harus bilangan ganjil";
+    }
+    
+    return polaBilanganGanjil(input, i, j + 1, pola);
+  }
+  let input = 5;
+  console.log("N = ", input);
+  console.log("Output:");
+  let hasil = polaBilanganGanjil(input);
+  
+  let input2 = 3;
+  console.log("N = ", input2);
+  console.log("Output:");
+  let hasil2 = polaBilanganGanjil(input2);
+
+  let input3 = 7;
+  console.log("N = ", input3);
+  console.log("Output:");
+  let hasil3 = polaBilanganGanjil(input3);
+
+  let input4 = 2;
+  console.log("N = ", input4);
+  console.log("Output:");
+  let hasil4 = polaBilanganGanjil(input4);
+  

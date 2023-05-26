@@ -1,0 +1,32 @@
+function cek_kata_sandi(katasandi) {
+    //untuk mengecek apakah kata sandi memiliki panjang kalimat diantara kurang dari 8 dan lebih dari 32
+    if ((katasandi.length < 8) || (katasandi.length > 32))
+        return "kata sandi  tidak boleh kurang dari 8 maupun lebih dari 32";
+    //untuk mengecek apakah kata sandi awal tidak boleh angka
+    else if (/[0-9]/.test(katasandi.charAt(0)))
+        return "kata sandi awal tidak boleh angka";
+    //untuk mengecek apakah kata sandi harus memilih angka
+    else if (!/\d/.test(katasandi))
+        return "kata sandi harus memiliki angka";
+    //untuk mengecek apakah kata sandi harus memiliki huruf kapitar dan huruf kecil
+    else if (!/[a-z]/.test(katasandi) || !/[A-Z]/.test(katasandi))
+        return "kata sandi harus memiliki huruf kapital dan huruf kecil";
+    else
+    //jika tidak termasuk dari if di atas maka kata sandi valid/benar
+        return "kata sandi valid";
+    
+}
+//digunakan untukk meminta inputan dari user
+const readline = require('readline');
+//untuk menampilakan input dengan process.stdin dan output dengan process.stdout
+const r1 = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+//memberikan pertanyaan dari input : yang di isikan dengan kata sandi oleh user, kemudian di cek apakah kata sandi benar, jika output keluar maka akan proses akan berhenti(exit)
+r1.question('Input : ', (katasandi) =>{
+    const hasilPengecakan = cek_kata_sandi(katasandi);
+    console.log('Output : ',hasilPengecakan);
+    r1.close;
+    process.exit();
+});

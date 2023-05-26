@@ -1,0 +1,36 @@
+function fungsiBilanganCacah(input) {
+    // Mencari bilangan min dan max untuk dibandingkan dari inputan
+    let minNum = Math.min(...input); //nilai min dari input
+    let maxNum = Math.max(...input); //nilai max dari input
+  
+    // Membuat array kosong untuk menyimpan bilangan yang cocok
+    let bilcocok = [];
+  
+    // Mencetak semua bilangan dari min ke max dan melakukan pengecekan dengan array input
+    for (let num = minNum; num <= maxNum; num++) {
+      if (!input.includes(num)) {
+        bilcocok.push(num);  // Menambahkan bilangan yang belum ada ke array cocok
+      }
+    }
+  
+    // Mencari bilangan min dari array cocok
+    let minbilCocok = Math.min(...bilcocok);
+  
+    return minbilCocok;
+  }
+  
+  // contoh 1
+  let input1 = [5, 2, 8, 4, 3, 10];
+  let hasil1 = fungsiBilanganCacah(input1);
+  console.log("Input:", input1);
+  console.log("Output:", hasil1);
+  // contoh 2
+  let input2 = [2, 3, 4, 6];
+  let hasil2 = fungsiBilanganCacah(input2);
+  console.log("Input:", input2);
+  console.log("Output:", hasil2);
+  // contoh 3
+  let input3 = [8, 6, 7, 12];
+  let hasil3 = fungsiBilanganCacah(input3);
+  console.log("Input:", input3);
+  console.log("Output:", hasil3);
